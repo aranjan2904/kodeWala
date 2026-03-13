@@ -85,3 +85,9 @@ class Product_Billing
 	    System.out.println("Total Price = " + (price + quantity) );
 	}
 }
+
+
+class Test
+{
+	
+}
