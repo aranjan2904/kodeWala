@@ -27,8 +27,5 @@ public class kodewala {
 		Employee employee3 = new Employee("Sumit");
 		
 		
-		
-		
-		
 	}
 }
