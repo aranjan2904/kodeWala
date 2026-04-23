@@ -6,14 +6,14 @@ class Notification {
     }
 }
 
-class EmailNotification extends Notification {
+class EmailNotification extends Notification1 {
     @Override
     void send() {
         System.out.println("Sending Email notification");
     }
 }
 
-class SmsNotification extends Notification {
+class SmsNotification extends Notification1 {
     @Override
     void send() {
         System.out.println("Sending SMS notification");
@@ -23,7 +23,7 @@ class SmsNotification extends Notification {
 public class Driver {
     public static void main(String[] args) {
 
-        Notification notification = new EmailNotification(); // upcasting
+        Notification1 notification = new EmailNotification(); // upcasting
 
         notification.send();
       

@@ -1,6 +1,6 @@
 package com.kodewala.polymorphism;
 
-class Notification {
+class Notification1 {
 	void send() {
 		System.out.println("sending notification");
 	}
