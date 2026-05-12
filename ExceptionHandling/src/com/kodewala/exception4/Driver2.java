@@ -1,9 +1,5 @@
 package com.kodewala.exception4;
 
-
-
-
-
 public class Driver2 {
 
 	public static void main(String[] args) {
