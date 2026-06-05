@@ -42,7 +42,7 @@ public class CompanyRegistry {
                 
             
                 if (currentEmployee.getDepartment().equals("IT")) {
-                    System.out.println("IT Employee Found: " + currentEmployee.getName() + " (ID: " + currentEmployee.getEmployeeId() + ")");
+                    System.out.println("IT employee Found: " + currentEmployee.getName() + " (ID: " + currentEmployee.getEmployeeId() + ")");
                     itDepartmentCount = itDepartmentCount + 1;
                 }
                 
