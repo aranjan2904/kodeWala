@@ -15,7 +15,7 @@ public class BusPass {
         BusPass bp = (BusPass) obj;
         return this.passNumber == bp.passNumber;
     }
-
+    
     @Override
     public int hashCode() {
         return passNumber;
