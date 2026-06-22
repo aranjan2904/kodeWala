@@ -9,6 +9,8 @@ public class Driver6 {
 		
 		Optional<Character> output =  word.chars().mapToObj(c -> (char) c).filter(ch -> word.indexOf(ch) == word.lastIndexOf(ch)).findFirst();
 		
+		word.chars().mapToObj(c -> (char) c).filter(ch -> word.indexOf(ch) == word.lastIndexOf(ch)).findFirst();
+		
 		System.out.println(output.get());
 		
 		
