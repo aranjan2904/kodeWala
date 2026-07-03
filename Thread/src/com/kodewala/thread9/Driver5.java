@@ -11,7 +11,8 @@ public class Driver5 {
 
 		//thenCombine will combine the both and do operation.
 		CompletableFuture<Integer> finalfuture = future1.thenCombine(future2, (n1, n2) -> n1 + n2);
-
+		
+		CompletableFuture.allOf(future1,future2);
 		System.out.println(finalfuture.get());
 	}
 }

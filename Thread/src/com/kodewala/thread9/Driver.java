@@ -6,8 +6,8 @@ public class Driver {
 	public static void main(String[] args) {
 		System.out.println("Start " + Thread.currentThread().getName());
 		
-		//CompletableFuture will not block the previous thead 
-		//runAsync will not return anything
+		//CompletableFuture will not block the previous thread. 
+		//runAsync will not return anything.
 		CompletableFuture.runAsync(() -> {
 			System.out.println("Run Async ");
 		});
