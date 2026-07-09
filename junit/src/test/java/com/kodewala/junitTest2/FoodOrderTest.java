@@ -25,7 +25,7 @@ class FoodOrderTest {
 
 	    double actual = order.calculateBill(amount, coupon);
 
-	    assertEquals(expected, actual);
+	    assertEquals(expected, actual); 
 	}
 
 	@Test

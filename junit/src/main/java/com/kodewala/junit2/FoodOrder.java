@@ -1,7 +1,5 @@
 package com.kodewala.junit2;
 
-
-
 public class FoodOrder {
 
     public double calculateBill(double amount, String coupon) {
@@ -15,10 +13,6 @@ public class FoodOrder {
         }
         else if (coupon.equals("FLAT100") && amount >= 1000) {
             amount = amount - 100;
-        }
-
-        if (amount < 100) {
-            amount = 100;
         }
 
         return amount;
