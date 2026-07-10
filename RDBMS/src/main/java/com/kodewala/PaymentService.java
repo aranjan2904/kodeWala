@@ -38,4 +38,23 @@ public class PaymentService {
         }
         
     }
+    
+    
+    public void updatePayment(int id, String _status) throws ClassNotFoundException, SQLException {
+    	
+    	Class.forName("com.mysql.cj.jdbc.Driver");
+    	
+    	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/kodewala", "root", "Shubham@2904");
+    	
+    	
+    	Statement stmt = connection.createStatement();
+    	
+    	String query = "UPDATE payment SET status = '" + _status + "' WHERE id = " + id;
+    	
+    	int result  = stmt.executeUpdate(query);
+    	
+    	System.out.println(result);
+    	
+    	
+    }
 }

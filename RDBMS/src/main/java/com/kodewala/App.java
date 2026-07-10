@@ -8,7 +8,14 @@ public class App
     {
        PaymentService payment = new  PaymentService();
        try {
-		payment.getAllPayment("paid");
+		payment.getAllPayment(null);
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+       
+       try {
+		payment.updatePayment(1, "delululu");
 	} catch (ClassNotFoundException | SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
