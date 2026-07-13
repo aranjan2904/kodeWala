@@ -1,4 +1,4 @@
-package com.kodewala;
+package com.kodewala.jdbc1;
 
 import java.beans.Statement;
 import java.sql.Connection;

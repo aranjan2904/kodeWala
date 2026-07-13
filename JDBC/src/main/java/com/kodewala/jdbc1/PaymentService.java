@@ -1,4 +1,4 @@
-package com.kodewala;
+package com.kodewala.jdbc1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

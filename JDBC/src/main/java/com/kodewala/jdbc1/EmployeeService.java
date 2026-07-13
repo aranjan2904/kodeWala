@@ -1,4 +1,4 @@
-package com.kodewala;
+package com.kodewala.jdbc1;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class StudentService {
+public class EmployeeService {
 
-    // Insert Student
-    public void addStudent(String name, String course, int marks)
+    // Create Employee
+    public void addEmployee(String name, String department, double salary)
             throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -21,17 +21,16 @@ public class StudentService {
 
         Statement stmt = connection.createStatement();
 
-        String query = "INSERT INTO student(name,course,marks) VALUES('"
-                + name + "','" + course + "'," + marks + ")";
+        String query = "INSERT INTO employee(name, department, salary) VALUES('"
+                + name + "','" + department + "'," + salary + ")";
 
         int result = stmt.executeUpdate(query);
 
-        System.out.println(result + " Student Added Successfully");
+        System.out.println(result + " Employee Added");
     }
 
-    // Get All Students
-    public void getAllStudents()
-            throws ClassNotFoundException, SQLException {
+ 
+    public void getAllEmployees() throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
@@ -42,52 +41,56 @@ public class StudentService {
 
         Statement stmt = connection.createStatement();
 
-        String query = "SELECT * FROM student";
+        String query = "SELECT * FROM employee";
 
         ResultSet rs = stmt.executeQuery(query);
 
         while (rs.next()) {
 
-            System.out.println("------------------------");
-            System.out.println("ID      : " + rs.getInt("id"));
-            System.out.println("Name    : " + rs.getString("name"));
-            System.out.println("Course  : " + rs.getString("course"));
-            System.out.println("Marks   : " + rs.getInt("marks"));
+            int id = rs.getInt(1);
+            String name = rs.getString(2);
+            String department = rs.getString(3);
+            double salary = rs.getDouble(4);
+
+            System.out.println("ID : " + id);
+            System.out.println("Name : " + name);
+            System.out.println("Department : " + department);
+            System.out.println("Salary : " + salary);
+            System.out.println("----------------------");
         }
     }
 
-    // Get Student By ID
-    public void getStudentById(int id)
+    // Read Employee By ID
+    public void getEmployeeById(int id)
             throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/kodewala",
+                "jdbc:mysql://localhost:3306/kodwala",
                 "root",
                 "Shubham@2904");
 
         Statement stmt = connection.createStatement();
 
-        String query = "SELECT * FROM student WHERE id=" + id;
+        String query = "SELECT * FROM employee WHERE id=" + id;
 
         ResultSet rs = stmt.executeQuery(query);
 
         if (rs.next()) {
 
-            System.out.println("ID      : " + rs.getInt("id"));
-            System.out.println("Name    : " + rs.getString("name"));
-            System.out.println("Course  : " + rs.getString("course"));
-            System.out.println("Marks   : " + rs.getInt("marks"));
+            System.out.println("ID : " + rs.getInt("id"));
+            System.out.println("Name : " + rs.getString("name"));
+            System.out.println("Department : " + rs.getString("department"));
+            System.out.println("Salary : " + rs.getDouble("salary"));
 
         } else {
-
-            System.out.println("Student Not Found");
+            System.out.println("Employee Not Found");
         }
     }
 
-    // Update Student Marks
-    public void updateMarks(int id, int marks)
+    // Update Employee Salary
+    public void updateSalary(int id, double salary)
             throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -99,19 +102,16 @@ public class StudentService {
 
         Statement stmt = connection.createStatement();
 
-        String query = "UPDATE student SET marks=" + marks + " WHERE id=" + id;
+        String query = "UPDATE employee SET salary=" + salary +
+                " WHERE id=" + id;
 
         int result = stmt.executeUpdate(query);
 
-        if (result > 0) {
-            System.out.println("Student Updated Successfully");
-        } else {
-            System.out.println("Student Not Found");
-        }
+        System.out.println(result + " Record Updated");
     }
 
-    // Delete Student
-    public void deleteStudent(int id)
+    // Delete Employee
+    public void deleteEmployee(int id)
             throws ClassNotFoundException, SQLException {
 
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -123,14 +123,10 @@ public class StudentService {
 
         Statement stmt = connection.createStatement();
 
-        String query = "DELETE FROM student WHERE id=" + id;
+        String query = "DELETE FROM employee WHERE id=" + id;
 
         int result = stmt.executeUpdate(query);
 
-        if (result > 0) {
-            System.out.println("Student Deleted Successfully");
-        } else {
-            System.out.println("Student Not Found");
-        }
+        System.out.println(result + " Record Deleted");
     }
 }
