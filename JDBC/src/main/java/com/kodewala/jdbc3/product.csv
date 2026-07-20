@@ -1,0 +1,51 @@
+id,name,price,quantity
+101,Apple iPhone 16,89999,15
+102,Samsung Galaxy S25,84999,18
+103,OnePlus 13,69999,22
+104,Google Pixel 10,79999,12
+105,Xiaomi 15 Pro,64999,20
+106,Realme GT 8 Pro,45999,25
+107,Nothing Phone 3,49999,17
+108,Vivo X300,62999,14
+109,Oppo Find X9,68999,10
+110,Motorola Edge 70,39999,21
+111,Dell Inspiron 15,58999,12
+112,HP Pavilion 15,61999,10
+113,Lenovo IdeaPad Slim 5,56999,13
+114,ASUS Vivobook 15,54999,16
+115,Acer Aspire 7,52999,9
+116,MacBook Air M4,114999,8
+117,MacBook Pro M4,189999,5
+118,MSI Modern 15,64999,11
+119,LG UltraGear Monitor 27,22999,20
+120,Samsung Odyssey G5 Monitor,25999,18
+121,Logitech MX Master 3S Mouse,8999,35
+122,Logitech G304 Mouse,2999,42
+123,Razer DeathAdder V3,4999,30
+124,HP Wireless Mouse,999,60
+125,Dell Wired Mouse,599,70
+126,Logitech K380 Keyboard,3499,28
+127,Redragon Mechanical Keyboard,4499,24
+128,Corsair K70 RGB Keyboard,9999,15
+129,Apple Magic Keyboard,10999,12
+130,Zebronics Wired Keyboard,799,55
+131,Sony WH-1000XM6 Headphones,32999,14
+132,Boat Rockerz 550,1999,45
+133,JBL Tune 770NC,6999,30
+134,Apple AirPods Pro 3,24999,16
+135,Samsung Galaxy Buds 3 Pro,14999,18
+136,Noise Buds VS106,1499,50
+137,SanDisk 1TB SSD,7999,26
+138,WD 2TB HDD,6499,22
+139,Seagate 1TB HDD,4999,27
+140,Kingston 16GB DDR5 RAM,4999,33
+141,Corsair 32GB DDR5 RAM,9999,20
+142,TP-Link WiFi 6 Router,3999,25
+143,D-Link Gigabit Switch,2499,18
+144,Canon PIXMA Printer,8999,12
+145,Epson EcoTank Printer,15999,8
+146,Mi Power Bank 20000mAh,2499,38
+147,Anker 65W Charger,3999,30
+148,Samsung T7 Portable SSD 1TB,9999,14
+149,Amazon Echo Dot 5,4499,21
+150,Google Nest Mini 2,4999,17
