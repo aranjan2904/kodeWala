@@ -10,10 +10,10 @@ public class App
 {
     public static void main( String[] args )
     {
-       ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-       
-       Student student = context.getBean(Student.class);
-       
-       student.display();
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
+        
+        Student student = context.getBean(Student.class);
+        
+        System.out.println(student);
     }
 }
