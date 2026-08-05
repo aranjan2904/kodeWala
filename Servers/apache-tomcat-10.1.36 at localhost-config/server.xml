@@ -142,7 +142,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="irctc-pnr-checker" path="/irctc-pnr-checker" reloadable="true" source="org.eclipse.jst.j2ee.server:irctc-pnr-checker"/></Host>
+      <Context docBase="amazon-orders-service" path="/amazon-orders-service" reloadable="true" source="org.eclipse.jst.jee.server:amazon-orders-service"/></Host>
     </Engine>
   </Service>
 </Server>
