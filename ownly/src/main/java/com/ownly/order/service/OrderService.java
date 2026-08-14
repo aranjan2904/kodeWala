@@ -52,7 +52,7 @@ public class OrderService {
         orderResponse.setPaymentStatus("PAID");
 
         // Set the total amount
-        orderResponse.setTotalAmount(id);
+        orderResponse.setTotalAmount(50000);
 
         // Return the response to the Controller
         return orderResponse;
