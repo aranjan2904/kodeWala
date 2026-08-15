@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ownly</groupId>
-	<artifactId>ownly-order-service</artifactId>
+	<artifactId>ownly</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ownly</name>
 	<description>ownly -place-order-service</description>
