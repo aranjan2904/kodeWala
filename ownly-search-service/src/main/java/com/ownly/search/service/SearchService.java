@@ -1,5 +1,8 @@
 package com.ownly.search.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +30,29 @@ public class SearchService {
 		response.setQuantity(searchEntity.getQuantity());
 		
 		return response;
+	}
+	
+	
+	public List<SearchResponse> getProductByPrice(double price){
+		
+		 List<SearchEntity> list = searchRepository.findByPrice(price);
+		 
+		 List<SearchResponse>  responseList = new ArrayList<SearchResponse>();
+		 
+		 for(SearchEntity entity : list) {
+			 
+			 SearchResponse response = new SearchResponse();
+			 
+			 response.setOrderId(entity.getOrderId());
+			 response.setProduct_id(entity.getProduct_id());
+			 response.setProduct_name(entity.getProduct_name());
+			 response.setPrice(entity.getPrice());
+			 response.setQuantity(entity.getQuantity());
+			 
+			 responseList.add(response);
+		 }
+		 
+		 return responseList;
 	}
 	
 	

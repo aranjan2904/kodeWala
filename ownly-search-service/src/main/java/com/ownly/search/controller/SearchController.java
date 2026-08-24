@@ -24,4 +24,10 @@ public class SearchController {
 		
 			return	searchService.getProductById(orderId);
 	}
+	
+	@GetMapping("/findOrder")
+	public List<SearchResponse> getOrderByPrice(@RequestParam("price") double price){
+		
+		return searchService.getProductByPrice(price); 
+	}
 }

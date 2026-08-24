@@ -1,60 +1,82 @@
 package com.ownly.order.service;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ownly.order.entity.OrderEntity;
+import com.ownly.order.entity.PaymentEntity;
+import com.ownly.order.exception.OrderNotFoundException;
 import com.ownly.order.repository.OrderRepository;
+import com.ownly.order.repository.PaymentRepository;
 import com.ownly.order.request.OrderRequest;
 import com.ownly.order.response.OrderResponse;
 
 @Service
 public class OrderService {
 
-    // Repository is used to communicate with the database
-    private final OrderRepository orderRepository;
+	@Autowired
+    private OrderRepository orderRepository;
+    
+    @Autowired
+    private PaymentRepository paymentRepository;
+    
+    
 
-    // Constructor-based Dependency Injection
-    public OrderService(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
-
-    // Business logic for placing an order
+    @Transactional
     public OrderResponse placeOrder(OrderRequest request) {
 
-        // Create a new Entity object that will be stored in the database
-        OrderEntity orderEntity = new OrderEntity();
+        // Create entity
+        OrderEntity order = new OrderEntity();
 
-        // Copy the data received from the client (Request DTO)
-        // into the Entity object
-        orderEntity.setCustomer_id(request.getCustomer_id());
-        orderEntity.setProduct_id(request.getProduct_id());
-        orderEntity.setQuantity(request.getQuantity());
-        orderEntity.setPayment_method(request.getPayment_method());
-        orderEntity.setDelivery_address(request.getDelivery_address());
+        order.setCustomer_id(request.getCustomer_id());
+        order.setProduct_id(request.getProduct_id());
+        order.setQuantity(request.getQuantity());
+        order.setPayment_method(request.getPayment_method());
+        order.setDelivery_address(request.getDelivery_address());
 
-        // Generate a unique order ID for the customer
-        int id = (int) (Math.random() * 9000) + 100000;
-        orderEntity.setOrder_id(id);
+        // Generate order ID
+        int orderId = (int) (Math.random() * 9000) + 100000;
+        order.setOrder_id(orderId);
 
-        // Save the OrderEntity into the database
-        // save() returns the saved entity
-        OrderEntity responseEntity = orderRepository.save(orderEntity);
+        // Save to database
+        OrderEntity savedOrder = orderRepository.save(order);
+        
+        
+        //payment
+        PaymentEntity payment = new PaymentEntity();
+        payment.setOrder_id(savedOrder.getOrder_id());
+        payment.setPayment_method(request.getPayment_method());
+        payment.setPayment_status("PAID");
+        payment.setAmount(50000);
+        
+        paymentRepository.save(payment);
 
-        // Create a Response DTO to send data back to the client
-        OrderResponse orderResponse = new OrderResponse();
+        
 
-        // Copy required data from Entity to Response DTO
-        orderResponse.setCustomerId(responseEntity.getCustomer_id());
-        orderResponse.setOrderId(responseEntity.getOrder_id());
+        // Create response
+        OrderResponse response = new OrderResponse();
 
-        // Set the initial order and payment status
-        orderResponse.setOrderStatus("Placed");
-        orderResponse.setPaymentStatus("PAID");
+        response.setCustomerId(savedOrder.getCustomer_id());
+        response.setOrderId(savedOrder.getOrder_id());
+        response.setOrderStatus("Placed");
+        response.setPaymentStatus("PAID");
+        response.setTotalAmount(50000);
 
-        // Set the total amount
-        orderResponse.setTotalAmount(50000);
+        return response;
+    }
+    
+    
+    public OrderEntity getOrderById(int orderId) {
+    	
+    	Optional<OrderEntity> order = orderRepository.findById(orderId);
 
-        // Return the response to the Controller
-        return orderResponse;
+    	if (order.isEmpty()) {
+    	    throw new OrderNotFoundException("Order not found: " + orderId);
+    	}
+
+    	return order.get();
     }
 }
