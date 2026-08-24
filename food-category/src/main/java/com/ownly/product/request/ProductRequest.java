@@ -4,9 +4,16 @@ public class ProductRequest {
 
 	private String name;
 	private String description;
-	private String categoryId;
+	private String categoryName;
+	private double price;
 	
 	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	public String getName() {
 		return name;
 	}
@@ -19,11 +26,12 @@ public class ProductRequest {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getCategoryId() {
-		return categoryId;
+	
+	public String getCategoryName() {
+		return categoryName;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 	
 	

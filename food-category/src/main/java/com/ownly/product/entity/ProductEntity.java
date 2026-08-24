@@ -30,6 +30,13 @@ public class ProductEntity {
 	@JoinColumn(name = "category_id")
 	private CategoryEntity category;
 	
+	
+	public CategoryEntity getCategory() {
+		return category;
+	}
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
+	}
 	public long getId() {
 		return id;
 	}

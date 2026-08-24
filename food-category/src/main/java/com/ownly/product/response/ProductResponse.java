@@ -7,7 +7,7 @@ public class ProductResponse {
 	private String name;
 	private String description;
 	private Double price;
-	private String caregoryName;
+	private String categoryName;
 	public Long getId() {
 		return id;
 	}
@@ -38,11 +38,11 @@ public class ProductResponse {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
-	public String getCaregoryName() {
-		return caregoryName;
+	public String getCategoryName() {
+		return categoryName;
 	}
-	public void setCaregoryName(String caregoryName) {
-		this.caregoryName = caregoryName;
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
 	}
 	
 	
