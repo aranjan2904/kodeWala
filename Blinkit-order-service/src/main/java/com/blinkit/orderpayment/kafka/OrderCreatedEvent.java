@@ -6,7 +6,7 @@ public class OrderCreatedEvent {
 	
 	private Long orderId;
 	private Long customerId;
-	private BigDecimal price;
+	private BigDecimal amount;
 	
 	
 	public OrderCreatedEvent() {
@@ -14,11 +14,11 @@ public class OrderCreatedEvent {
 	}
 
 
-	public OrderCreatedEvent(Long orderId, Long customerId, BigDecimal price) {
+	public OrderCreatedEvent(Long orderId, Long customerId, BigDecimal amount) {
 		super();
 		this.orderId = orderId;
 		this.customerId = customerId;
-		this.price = price;
+		this.amount = amount;
 	}
 
 
@@ -42,13 +42,13 @@ public class OrderCreatedEvent {
 	}
 
 
-	public BigDecimal getPrice() {
-		return price;
+	public BigDecimal getAmount() {
+		return amount;
 	}
 
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
 	}
 	
 	
