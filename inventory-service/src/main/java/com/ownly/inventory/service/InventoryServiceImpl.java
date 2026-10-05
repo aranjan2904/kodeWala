@@ -3,6 +3,8 @@ package com.ownly.inventory.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -51,6 +53,7 @@ public class InventoryServiceImpl implements InventoryService{
 
 	
 	@Override
+	@Cacheable(value = "inventory", key = "'page:' + #page + ':size:' + #size")
 	public List<InventoryResponse> getAllInventory(int page, int size) {
 		
 		Pageable pageable = PageRequest.of(page, size);
