@@ -3,6 +3,8 @@ package com.ownly.inventory.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
@@ -20,7 +22,7 @@ public class InventoryServiceImpl implements InventoryService{
 	
 	private final InventoryRepository inventoryRepository;
 	
-	
+	private static final Logger log = LoggerFactory.getLogger(InventoryServiceImpl.class);
 
 	public InventoryServiceImpl(InventoryRepository inventoryRepository) {
 		super();
@@ -29,16 +31,21 @@ public class InventoryServiceImpl implements InventoryService{
 	}
 	
 	
-
 	@Override
 	public InventoryResponse addInventory(InventoryRequest request) {
+		
+		log.info("Creating inventory ", request.getProductName() );
 		
 		Inventory inventory = new Inventory();
 		
 		inventory.setProductName(request.getProductName());
 		inventory.setQuantity(request.getQuantity());
 		
+		log.debug("Saving inventory to database.");
+		
 		Inventory saveInventory = inventoryRepository.save(inventory);
+		
+		log.info("inventory saved to db", saveInventory.getId());
 		
 		//--------------------------------------------//
 		
@@ -47,6 +54,10 @@ public class InventoryServiceImpl implements InventoryService{
 		response.setId(saveInventory.getId());
 		response.setProductName(saveInventory.getProductName());
 		response.setQuantity(saveInventory.getQuantity());
+		
+		log.info("response set", response.getId());
+		
+		log.debug("Inventory response prepared.", response.getId());
 		
 		return response;
 	}
@@ -60,6 +71,8 @@ public class InventoryServiceImpl implements InventoryService{
 		
 		
 		Page<Inventory> result =  inventoryRepository.findAll(pageable);
+		
+		log.info("inventory ");
 		
 		List<InventoryResponse> response = new  ArrayList<InventoryResponse>();
 		
