@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ownly.order.client.InventoryClient;
 import com.ownly.order.entity.OrderEntity;
 import com.ownly.order.entity.PaymentEntity;
 import com.ownly.order.exception.OrderNotFoundException;
@@ -17,11 +18,18 @@ import com.ownly.order.response.OrderResponse;
 @Service
 public class OrderService {
 
-	@Autowired
-    private OrderRepository orderRepository;
+	private final OrderRepository orderRepository;
+    private final PaymentRepository paymentRepository;
+    private final InventoryClient inventoryClient;
     
-    @Autowired
-    private PaymentRepository paymentRepository;
+    
+    public OrderService(OrderRepository orderRepository, PaymentRepository paymentRepository,
+			InventoryClient inventoryClient) {
+		super();
+		this.orderRepository = orderRepository;
+		this.paymentRepository = paymentRepository;
+		this.inventoryClient = inventoryClient;
+	}
     
     
 
@@ -79,4 +87,11 @@ public class OrderService {
 
     	return order.get();
     }
+    
+    
+    public String getInventory() {
+        return inventoryClient.checkInventory();
+    }
+    
+    
 }

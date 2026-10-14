@@ -1,8 +1,1 @@
-2026-10-13 12:24:49.253 [RMI TCP Connection(4)-192.168.0.117] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
-2026-10-13 12:24:49.262 [RMI TCP Connection(4)-192.168.0.117] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-10-13 12:24:49.263 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8081"]
-2026-10-13 12:24:49.271 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-10-13 12:24:49.272 [RMI TCP Connection(4)-192.168.0.117] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8081"]
-2026-10-13 12:24:49.291 [RMI TCP Connection(4)-192.168.0.117] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-10-13 12:24:49.293 [RMI TCP Connection(4)-192.168.0.117] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-10-13 12:24:49.302 [RMI TCP Connection(4)-192.168.0.117] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-14 17:30:27.817 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration

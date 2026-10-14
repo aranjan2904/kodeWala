@@ -22,9 +22,12 @@ public class OrderController {
 	
 	@PostMapping("/order/place")
 	public OrderResponse placeOrder(@RequestBody OrderRequest request) {
-		
-		
 		return orderService.placeOrder(request);
+	}
+	
+	@GetMapping("/inventory")
+	public String getInventory() {
+	    return orderService.getInventory();
 	}
 	
 	@GetMapping("/order/{orderId}")
