@@ -44,18 +44,26 @@ public class InventroryController {
 
     @GetMapping
     public List<InventoryResponse> getAllInventory(
-            @RequestParam int page,
-            @RequestParam int size) {
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
 
-        log.info("GET Fetching inventory.",
-                page, size);
+        log.info("INVENTORY: Received request from a client");
 
         List<InventoryResponse> response =
                 inventoryService.getAllInventory(page, size);
 
-        log.info("GET Inventory fetched.",
+        log.info("INVENTORY: Sending response with {} records",
                 response.size());
 
         return response;
+    }
+    
+    @GetMapping("/check")
+    public boolean checkStock(
+            @RequestParam Integer productId,
+            @RequestParam int quantity) {
+
+        return inventoryService.isStockAvailable(
+                productId, quantity);
     }
 }

@@ -2,27 +2,34 @@ package com.ownly.inventory.dto;
 
 public class InventoryRequest {
 
-	private String productName;
-	private Integer quantity;
+    private Integer productId;
+    private String productName;
+    private Integer quantity;
 
-	public InventoryRequest() {
+    public InventoryRequest() {
+    }
 
-	}
+    public Integer getProductId() {
+        return productId;
+    }
 
-	public String getProductName() {
-		return productName;
-	}
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
 
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
+    public String getProductName() {
+        return productName;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
+    public Integer getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }

@@ -1,1 +1,17 @@
-2026-10-14 17:30:27.817 [AsyncResolver-bootstrap-executor-%d] INFO  c.n.d.s.r.aws.ConfigClusterResolver - Resolving eureka endpoints via configuration
+2026-10-15 20:23:29.586 [RMI TCP Connection(9)-192.168.1.13] INFO  o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-10-15 20:23:29.590 [RMI TCP Connection(9)-192.168.1.13] INFO  o.s.c.n.e.s.EurekaServiceRegistry - Unregistering application INVENTORY-SERVICE with eureka with status DOWN
+2026-10-15 20:23:29.590 [RMI TCP Connection(9)-192.168.1.13] INFO  c.netflix.discovery.DiscoveryClient - Saw local status change event StatusChangeEvent [timestamp=1792076009590, current=DOWN, previous=UP]
+2026-10-15 20:23:29.590 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_INVENTORY-SERVICE/Ranjan.mshome.net:inventory-service:8081: registering service...
+2026-10-15 20:23:29.594 [RMI TCP Connection(9)-192.168.1.13] INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-10-15 20:23:29.595 [tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8081"]
+2026-10-15 20:23:29.599 [tomcat-shutdown] INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-10-15 20:23:29.600 [RMI TCP Connection(9)-192.168.1.13] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8081"]
+2026-10-15 20:23:29.611 [DiscoveryClient-InstanceInfoReplicator-%d] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_INVENTORY-SERVICE/Ranjan.mshome.net:inventory-service:8081 - registration status: 204
+2026-10-15 20:23:29.615 [RMI TCP Connection(9)-192.168.1.13] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-10-15 20:23:29.617 [RMI TCP Connection(9)-192.168.1.13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-10-15 20:23:29.622 [RMI TCP Connection(9)-192.168.1.13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-10-15 20:23:30.319 [RMI TCP Connection(9)-192.168.1.13] INFO  c.netflix.discovery.DiscoveryClient - Shutting down DiscoveryClient ...
+2026-10-15 20:23:33.332 [RMI TCP Connection(9)-192.168.1.13] INFO  c.netflix.discovery.DiscoveryClient - Unregistering ...
+2026-10-15 20:23:33.332 [DiscoveryClient-%d] WARN  c.n.discovery.TimedSupervisorTask - task supervisor shutting down, can't accept the task
+2026-10-15 20:23:33.351 [RMI TCP Connection(9)-192.168.1.13] INFO  c.netflix.discovery.DiscoveryClient - DiscoveryClient_INVENTORY-SERVICE/Ranjan.mshome.net:inventory-service:8081 - deregister  status: 200
+2026-10-15 20:23:33.351 [RMI TCP Connection(9)-192.168.1.13] INFO  c.netflix.discovery.DiscoveryClient - Completed shut down of DiscoveryClient

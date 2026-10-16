@@ -15,6 +15,10 @@ public class Inventory {
     private String productName;
 
     private Integer quantity;
+    
+    private Integer productId;
+
+   
 
     public Inventory() {
     }
@@ -23,6 +27,14 @@ public class Inventory {
         this.id = id;
         this.productName = productName;
         this.quantity = quantity;
+    }
+    
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
     }
 
     public Long getId() {

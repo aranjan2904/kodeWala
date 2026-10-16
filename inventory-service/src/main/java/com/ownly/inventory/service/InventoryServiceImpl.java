@@ -38,6 +38,7 @@ public class InventoryServiceImpl implements InventoryService{
 		
 		Inventory inventory = new Inventory();
 		
+		inventory.setProductId(request.getProductId());
 		inventory.setProductName(request.getProductName());
 		inventory.setQuantity(request.getQuantity());
 		
@@ -90,6 +91,19 @@ public class InventoryServiceImpl implements InventoryService{
 		return response;
 		
 		
+	}
+	
+	
+
+	@Override
+	public boolean isStockAvailable(
+	        Integer productId, int quantity) {
+
+	    return inventoryRepository
+	            .findByProductId(productId)
+	            .map(inventory ->
+	                    inventory.getQuantity() >= quantity)
+	            .orElse(false);
 	}
 
 }

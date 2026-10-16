@@ -1,17 +1,25 @@
 package com.shopflow.productservice.service;
 
+import com.shopflow.productservice.client.InventoryClient;
 import com.shopflow.productservice.entity.Product;
 import com.shopflow.productservice.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+
 @Service
 public class ProductService {
 
+    private final InventoryClient inventoryClient;
     private final ProductRepository productRepository;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(
+            InventoryClient inventoryClient,
+            ProductRepository productRepository) {
+
+        this.inventoryClient = inventoryClient;
         this.productRepository = productRepository;
     }
 
@@ -25,7 +33,8 @@ public class ProductService {
 
     public Product getProductById(Long id) {
         return productRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+                .orElseThrow(() ->
+                        new RuntimeException("Product not found with id: " + id));
     }
 
     public Product updateProduct(Long id, Product product) {

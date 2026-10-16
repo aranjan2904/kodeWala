@@ -13,5 +13,7 @@ public interface InventoryService {
 	InventoryResponse addInventory(InventoryRequest request);
 	
 	List<InventoryResponse> getAllInventory(int page, int size);
+	
+	boolean isStockAvailable(Integer productId, int quantity);
 
 }
