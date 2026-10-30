@@ -1,0 +1,7 @@
+.git
+.idea
+.vscode
+*.iml
+README.md
+Jenkinsfile
+docker-compose.yml

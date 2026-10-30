@@ -1,0 +1,7 @@
+services:
+  springboot-service:
+    build: .
+    container_name: springboot-docker-demo
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
